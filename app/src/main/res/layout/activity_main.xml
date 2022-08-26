@@ -4,70 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     tools:context=".MainActivity">
 
-
     <LinearLayout
-        android:id="@+id/filter"
+        android:id="@+id/notes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/recyclerView"
+        android:orientation="horizontal"
+        android:padding="25dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/yellow"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="yellow"
-            android:textColor="#FBC02D"
-            android:textStyle="bold" />
+            android:layout_weight="1.2"
+            android:text="Notes"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
 
+        <ImageView
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.4"
+            android:background="@drawable/search_bg"
+            android:src="@drawable/search" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/priorityLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notes">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/search_bg"
+            android:padding="3dp"
+            android:src="@drawable/filter_list" />
 
         <TextView
-            android:id="@+id/green"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
+            android:background="@drawable/search_bg"
             android:gravity="center"
-            android:text="green"
-            android:textColor="#689F38"
-            android:textStyle="bold" />
+            android:text="High"
+            android:textColor="@color/white" />
 
         <TextView
-            android:id="@+id/red"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
             android:layout_weight="1"
+            android:background="@drawable/search_bg"
             android:gravity="center"
-            android:text="red"
-            android:textColor="#D32F2F"
-            android:textStyle="bold" />
+            android:text="Medium"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/search_bg"
+            android:gravity="center"
+            android:text="Low"
+            android:textColor="@color/white" />
+
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/filter" />
-
+        app:layout_constraintTop_toBottomOf="@id/priorityLinearLayout" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAddNote"
+        android:id="@+id/floatingAddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:src="@drawable/plus"
-        android:theme="@style/ProgressBarStyle"
+        android:layout_margin="16dp"
+        android:src="@drawable/add_icon"
+        android:theme="@style/floatingAddButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:tint="@color/white" />
+    <!--    use app:tint="" to change colour of icon-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

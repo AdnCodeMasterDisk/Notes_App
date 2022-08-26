@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Notes_Application" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Notes" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">#DD0909</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -14,10 +14,24 @@
         <!-- Customize your theme here. -->
     </style>
 
-
-    <!--    theme for splash screen -->
-    <style name="ProgressBarStyle">
-        <item name="colorSecondary">#DD0909</item>
+    <style name="floatingAddButtonStyle">
+        <item name="colorSecondary">@color/bg</item>
+        <item name="android:tint">@color/white</item>
     </style>
+
+    <style name="saveButtonStyle">
+        <item name="colorSecondary">@color/white</item>
+        <item name="android:tint">@color/black</item>
+    </style>
+
+    <style name="Theme.Notes.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Notes.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Notes.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 
 </resources>

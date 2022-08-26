@@ -1,26 +1,25 @@
-package com.pratyakshkhurana.notes_application.Database
+package com.pratyakshkhurana.notes.Data_or_Model
 
 import android.content.Context
-import android.provider.ContactsContract
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.pratyakshkhurana.notes_application.Dao.NotesDao
-import com.pratyakshkhurana.notes_application.Model.Notes
 
 
 //made abstract class, so we can make object of their children only
 //will make a singleton of this
 // Annotates class to be a Room Database with a table (entity) of the Word class
 @Database(
-    entities = [Notes::class],
+    //entities are all tables, we need to specify in database
+    entities = [NotesEntity::class],
     version = 1,
     exportSchema = false
 )
+//abstract
 abstract class NotesDatabase : RoomDatabase() {
 
-    //to access DAO in view model
-    abstract fun getNotesDao(): NotesDao
+    //to access DAO in view model and repository
+    abstract val notesDAO: NotesDAO
 
     //making singleton
     companion object {
@@ -47,5 +46,4 @@ abstract class NotesDatabase : RoomDatabase() {
         }
     }
 }
-
 
