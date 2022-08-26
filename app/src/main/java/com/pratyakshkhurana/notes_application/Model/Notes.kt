@@ -1,6 +1,5 @@
-package com.pratyakshkhurana.notes_app
+package com.pratyakshkhurana.notes_application.Model
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -15,11 +14,20 @@ import androidx.room.PrimaryKey
 //and this data will be passed on to the repository
 //@ColumnInfo is column name (good practice)
 
+//annotate to make it an entity(table)
+//table will have all these columns stored in room DB
+
 @Entity(tableName = "notes_table")
-class Note(@ColumnInfo(name = "text") val text: String) {
+class Notes(
+    @PrimaryKey(autoGenerate = true) var id: Int? = 0,
+    var title: String,
+    var subTitle: String,
+    var notes: String,
+    var date:String,
+    var priority: String
+) {
     //it will auto increment so made primary key out of it, so no need to
     //pass in the constructor
-    @PrimaryKey(autoGenerate = true) val id = 0
-
 }
-//make DAO to access this table
+
+//make DAO to access this table (entity) in Room (wrapper above SQLite)

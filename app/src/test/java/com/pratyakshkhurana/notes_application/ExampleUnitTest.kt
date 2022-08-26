@@ -1,4 +1,4 @@
-package com.pratyakshkhurana.notes_app
+package com.pratyakshkhurana.notes_application
 
 import org.junit.Test
 

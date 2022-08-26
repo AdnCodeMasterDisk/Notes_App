@@ -3,7 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/praty/OneDrive/Desktop/Notes_App/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1335" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/drawable/arrow.xml" value="0.1495" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/drawable/background_priority.xml" value="0.1335" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/drawable/background_priority1_default.xml" value="0.112" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/drawable/background_priority2.xml" value="0.132" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/drawable/background_priority2_clicked.xml" value="0.1495" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/drawable/background_priority2_default.xml" value="0.112" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/drawable/background_priority3.xml" value="0.132" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/drawable/background_priority3_clicked.xml" value="0.1495" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/drawable/background_priority3_default.xml" value="0.112" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2595" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1335" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/drawable/plus.xml" value="0.1495" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/layout/activity_add_note.xml" value="0.2" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/layout/activity_add_note2.xml" value="0.4" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/layout/activity_splash_screen.xml" value="0.12183383991894631" />
+        <entry key="..\:/Users/praty/Downloads/Notes/app/src/main/res/layout/note_view_in_recycler_view.xml" value="0.4" />
       </map>
     </option>
   </component>
