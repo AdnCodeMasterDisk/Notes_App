@@ -22,13 +22,14 @@
             android:id="@+id/title_act_CreateNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:layout_weight="1"
             android:backgroundTint="@color/bg"
-            android:hint="Title"
+            android:hint="Title..."
             android:inputType="text"
             android:maxLines="1"
-            android:textColor="#848484"
-            android:textColorHint="#848484"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="30sp" />
 
         <LinearLayout
@@ -82,8 +83,8 @@
             android:backgroundTint="@color/bg"
             android:gravity="top"
             android:hint="Type something..."
-            android:textColor="#848484"
-            android:textColorHint="#848484"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="20sp" />
     </LinearLayout>
 

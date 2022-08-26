@@ -9,6 +9,7 @@ data class NotesEntity(
     val title: String,
     val description: String?,
     val lastUpdatedTime: String,
+    val lastUpdatedDate: String,
     val priority: String
 )
 

@@ -31,4 +31,10 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
         return repository.getNoteById(id)
     }
 
+    fun getAllNotes(): LiveData<List<NotesEntity>> {
+        return repository.getAllNotes()
+    }
+
+
+
 }
