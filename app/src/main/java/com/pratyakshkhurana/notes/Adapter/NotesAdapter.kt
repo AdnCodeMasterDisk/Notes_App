@@ -1,12 +1,10 @@
 package com.pratyakshkhurana.notes.Adapter
 
 import android.graphics.Color
-import android.util.Log.i
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.pratyakshkhurana.notes.Data_or_Model.NotesEntity
@@ -26,15 +24,9 @@ class NotesAdapter(private val listener: MainActivity, private val allNotes: Lis
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
         val curr = allNotes[position]
         holder.title.text = curr.title
-        holder.desc.text = curr.description
-        holder.date.text = curr.lastUpdatedDate
-        when ((1..5).random()) {
-            1 -> holder.card.setCardBackgroundColor(Color.parseColor("#ffcc80"))
-            2 -> holder.card.setCardBackgroundColor(Color.parseColor("#fbaa93"))
-            3 -> holder.card.setCardBackgroundColor(Color.parseColor("#e7ed9b"))
-            4 -> holder.card.setCardBackgroundColor(Color.parseColor("#81deea"))
-            5 -> holder.card.setCardBackgroundColor(Color.parseColor("#cf94da"))
-        }
+        holder.description.text = curr.description
+        holder.date.text = curr.requiredDateFormat
+        holder.card.setCardBackgroundColor(Color.parseColor(curr.noteColourBackground))
     }
 
     override fun getItemCount(): Int {
@@ -43,7 +35,7 @@ class NotesAdapter(private val listener: MainActivity, private val allNotes: Lis
 
     class NotesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.title_recyclerView
-        val desc: TextView = itemView.desc_recyclerView
+        val description: TextView = itemView.desc_recyclerView
         val date: TextView = itemView.date_recyclerView
         val card: CardView = itemView.cardViewRecyclerView
     }

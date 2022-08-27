@@ -12,7 +12,7 @@ import androidx.room.RoomDatabase
 @Database(
     //entities are all tables, we need to specify in database
     entities = [NotesEntity::class],
-    version = 1,
+    version = 3,
     exportSchema = false
 )
 //abstract
@@ -38,7 +38,7 @@ abstract class NotesDatabase : RoomDatabase() {
                     NotesDatabase::class.java,
                     "notes_database"
                     //added allowMainThreadQueries()
-                ).allowMainThreadQueries().build()
+                ).allowMainThreadQueries().fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 // return instance
                 instance

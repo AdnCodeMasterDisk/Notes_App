@@ -1,10 +1,14 @@
 package com.pratyakshkhurana.notes
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.graphics.Color
 import android.icu.text.DateFormat.getDateInstance
 import android.icu.text.SimpleDateFormat
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.format.DateFormat
 import android.util.Log
 import android.widget.Toast
@@ -25,6 +29,7 @@ class CreateNote : AppCompatActivity() {
 
     private var priorityDefault: String = "1" //high
     private val viewModel: NotesViewModel by viewModels()
+    private val coloursOfNotes = arrayListOf("#ffcc80", "#fbaa93", "#e7ed9b", "#81deea", "#cf94da")
 
     @SuppressLint("SimpleDateFormat")
     @RequiresApi(Build.VERSION_CODES.N)
@@ -32,6 +37,7 @@ class CreateNote : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_note)
 
+        high_create_note.setBackgroundResource(R.drawable.on_click_priority_create_note)
 
         high_create_note.setOnClickListener {
             high_create_note.setBackgroundResource(R.drawable.on_click_priority_create_note)
@@ -59,7 +65,6 @@ class CreateNote : AppCompatActivity() {
             val title = title_act_CreateNote.text.toString()
             val desc = description_act_CreateNote.text.toString()
             val priority = priorityDefault
-            Toast.makeText(this, "$title $desc $priority", Toast.LENGTH_SHORT).show()
 
             val time: LocalTime = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 LocalTime.now(ZoneId.systemDefault())
@@ -74,8 +79,31 @@ class CreateNote : AppCompatActivity() {
 
             val currentDate: String =
                 SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date()).toString()
-            Toast.makeText(this, currentDate, Toast.LENGTH_SHORT).show()
+            Log.e("@@", currentDate) //27-08-2022
 
+            val date = (currentDate[0].toString() + currentDate[1].toString())
+            val month = (currentDate[3].toString() + currentDate[4].toString())
+            val year =
+                (currentDate[6].toString() + currentDate[7].toString() + currentDate[8].toString() + currentDate[9].toString())
+
+//            val requiredDateFormat
+            var requiredDateFormat = ""
+            when (month) {
+                "01" -> requiredDateFormat += "Jan"
+                "02" -> requiredDateFormat += "Feb"
+                "03" -> requiredDateFormat += "Mar"
+                "04" -> requiredDateFormat += "April"
+                "05" -> requiredDateFormat += "May"
+                "06" -> requiredDateFormat += "June"
+                "07" -> requiredDateFormat += "July"
+                "08" -> requiredDateFormat += "Aug"
+                "09" -> requiredDateFormat += "Sept"
+                "10" -> requiredDateFormat += "Oct"
+                "11" -> requiredDateFormat += "Nov"
+                "12" -> requiredDateFormat += "Dec"
+            }
+            requiredDateFormat += " $date, $year"
+            Log.e("123", requiredDateFormat) //27-08-2022
 
             val obj = NotesEntity(
                 null,
@@ -83,11 +111,22 @@ class CreateNote : AppCompatActivity() {
                 description = desc,
                 lastUpdatedTime = currentTime,
                 lastUpdatedDate = currentDate,
-                priority = priorityDefault
+                priority = priority,
+                noteColourBackground = coloursOfNotes[(0..4).random()],
+                requiredDateFormat = requiredDateFormat
             )
-            viewModel.insert(obj)
 
-            finish()
+            if (title.isNotEmpty()) {
+                viewModel.insert(obj)
+                Toast.makeText(this, "Last updated : $currentTime", Toast.LENGTH_LONG).show()
+
+                //delay to view toast
+                Handler(Looper.getMainLooper()).postDelayed(Runnable {
+                    finish()
+                }, 2000)
+            } else {
+                Toast.makeText(this, "No title", Toast.LENGTH_LONG).show()
+            }
         }
 
     }

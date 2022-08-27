@@ -16,8 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-
+        
         <EditText
             android:id="@+id/title_act_CreateNote"
             android:layout_width="match_parent"

@@ -10,7 +10,9 @@ data class NotesEntity(
     val description: String?,
     val lastUpdatedTime: String,
     val lastUpdatedDate: String,
-    val priority: String
+    val priority: String,
+    val noteColourBackground: String,
+    val requiredDateFormat: String
 )
 
 
