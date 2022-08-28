@@ -17,36 +17,42 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
-        <ImageView
-            android:id="@+id/shareBtn_CreateNote"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/bg"
-            android:padding="15dp"
-            android:src="@drawable/share" />
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/shareBtn_CreateNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg"
+                android:padding="15dp"
+                android:src="@drawable/share" />
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/currDate_CreateNote"
+            android:id="@+id/currDate_EditNote"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_gravity="right"
             android:layout_marginTop="15dp"
             android:text="Last Updated..."
             android:textColor="@color/white"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textSize="15sp" />
 
         <EditText
-            android:id="@+id/title_act_CreateNote"
+            android:id="@+id/title_act_EditNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:backgroundTint="@color/bg"
             android:fontFamily="@font/notes_title"
-            android:gravity="center|left"
             android:hint="Title"
             android:maxLines="2"
             android:textColor="@color/white"
@@ -54,72 +60,41 @@
             android:textSize="30sp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/priority_create_note"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:id="@+id/priority_Edit_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
                 android:background="@drawable/bg"
+                android:fontFamily="@font/notes_title"
                 android:gravity="center"
+                android:padding="10dp"
                 android:text="High"
-                android:textColor="@color/white" />
-
-            <TextView
-                android:id="@+id/medium_create_note"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg"
-                android:gravity="center"
-                android:text="Medium"
-                android:textColor="@color/white" />
-
-            <TextView
-                android:id="@+id/low_create_note"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg"
-                android:gravity="center"
-                android:text="Low"
-                android:textColor="@color/white" />
-
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <EditText
-            android:id="@+id/description_act_CreateNote"
+            android:id="@+id/description_act_EditNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:backgroundTint="@color/bg"
             android:fontFamily="@font/notes_title"
             android:gravity="top"
-            android:hint="Type something..."
+            android:hint="fdsfsdfs fdsf"
             android:textColor="@color/white"
             android:textColorHint="#9a9a9a"
             android:textSize="20sp" />
+
+
     </LinearLayout>
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/saveFloatingButton_create_note"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:src="@drawable/save"
-        android:theme="@style/saveButtonStyle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
 
     <ImageView
         android:id="@+id/backBtn_CreateNote"
@@ -134,5 +109,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/saveFloatingButton_edit_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/save"
+        android:theme="@style/saveButtonStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

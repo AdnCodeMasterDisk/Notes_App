@@ -17,7 +17,25 @@ class Repository(private val dao: NotesDAO) {
         dao.delete(note)
     }
 
-    fun getNoteById(id: Int): NotesEntity? {
-        return dao.getNoteById(id)
+
+    fun getHigh(): LiveData<List<NotesEntity>> {
+        return dao.getHigh()
     }
+
+    fun getMed(): LiveData<List<NotesEntity>> {
+        return dao.getMed()
+    }
+
+    fun getLow(): LiveData<List<NotesEntity>> {
+        return dao.getLow()
+    }
+    fun searchDatabase(searchQuery: String): LiveData<List<NotesEntity>> {
+        return dao.searchDatabase(searchQuery)
+    }
+
+    fun update(notes:NotesEntity){
+       dao.update(notes)
+    }
+
+
 }

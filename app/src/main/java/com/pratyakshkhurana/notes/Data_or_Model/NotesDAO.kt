@@ -16,8 +16,23 @@ interface NotesDAO {
     @Delete
     fun delete(note: NotesEntity)
 
-    @Query("SELECT * FROM notesTable WHERE id=:id")
-    fun getNoteById(id: Int): NotesEntity?
+    @Query("SELECT * FROM notesTable WHERE priority='1'")
+    fun getHigh(): LiveData<List<NotesEntity>>
+
+    @Query("SELECT * FROM notesTable WHERE priority='2'")
+    fun getMed(): LiveData<List<NotesEntity>>
+
+    @Query("SELECT * FROM notesTable WHERE priority='3'")
+    fun getLow(): LiveData<List<NotesEntity>>
+
+    @Query("SELECT * FROM notesTable WHERE title LIKE :searchQuery")
+    // and then search query will be passed through
+    // the perimeter of this function
+    // and then function will return the flow of list of person
+    fun searchDatabase(searchQuery: String): LiveData<List<NotesEntity>>
+
+    @Update
+    fun update(note: NotesEntity)
 
 }
 

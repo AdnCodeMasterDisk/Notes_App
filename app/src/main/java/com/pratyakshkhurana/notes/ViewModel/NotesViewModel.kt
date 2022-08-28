@@ -27,14 +27,28 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
         repository.delete(note)
     }
 
-    fun getNoteById(id: Int): NotesEntity? {
-        return repository.getNoteById(id)
-    }
-
     fun getAllNotes(): LiveData<List<NotesEntity>> {
         return repository.getAllNotes()
     }
 
+    fun getHigh(): LiveData<List<NotesEntity>> {
+        return repository.getHigh()
+    }
+
+    fun getMed(): LiveData<List<NotesEntity>> {
+        return repository.getMed()
+    }
+
+    fun getLow(): LiveData<List<NotesEntity>> {
+        return repository.getLow()
+    }
+
+    fun search(searchQuery: String): LiveData<List<NotesEntity>> {
+        return repository.searchDatabase(searchQuery)
+    }
+    fun update(notes:NotesEntity){
+         repository.update(notes)
+    }
 
 
 }

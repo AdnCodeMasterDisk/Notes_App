@@ -23,22 +23,41 @@
             android:layout_margin="10dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/title_recyclerView"
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="Title"
-                android:textColor="@color/bg"
-                android:textSize="20sp" />
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/title_recyclerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/notes_title"
+                    android:text="Title "
+                    android:textColor="@color/bg"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/delete_button_recyclerView"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/delete"
+                    android:theme="@style/saveButtonStyle"
+                    app:tint="#D32F2F" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/desc_recyclerView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/notes_title"
                 android:text="Description"
                 android:textColor="@color/bg"
                 android:textSize="15sp" />
@@ -51,7 +70,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="5dp"
                 android:text="Current date"
-                android:textColor="#495057"
+                android:textColor="#3b3b3b"
                 android:textSize="15sp" />
 
         </LinearLayout>

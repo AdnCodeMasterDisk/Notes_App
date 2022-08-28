@@ -21,7 +21,6 @@
 
     <style name="saveButtonStyle">
         <item name="colorSecondary">@color/white</item>
-        <item name="android:tint">@color/black</item>
     </style>
 
     <style name="Theme.Notes.NoActionBar">
