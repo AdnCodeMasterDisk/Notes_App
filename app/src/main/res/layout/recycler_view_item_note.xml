@@ -55,12 +55,13 @@
             <TextView
                 android:id="@+id/desc_recyclerView"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:fontFamily="@font/notes_title"
                 android:text="Description"
                 android:textColor="@color/bg"
                 android:textSize="15sp" />
+
 
             <TextView
                 android:id="@+id/date_recyclerView"

@@ -46,9 +46,5 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
     fun search(searchQuery: String): LiveData<List<NotesEntity>> {
         return repository.searchDatabase(searchQuery)
     }
-    fun update(notes:NotesEntity){
-         repository.update(notes)
-    }
-
 
 }

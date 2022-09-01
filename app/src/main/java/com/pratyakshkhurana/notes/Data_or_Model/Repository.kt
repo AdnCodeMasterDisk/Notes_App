@@ -33,9 +33,6 @@ class Repository(private val dao: NotesDAO) {
         return dao.searchDatabase(searchQuery)
     }
 
-    fun update(notes:NotesEntity){
-       dao.update(notes)
-    }
 
 
 }
