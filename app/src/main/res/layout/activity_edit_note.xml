@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/bg"
+                android:background="@drawable/bg_on_click"
                 android:fontFamily="@font/notes_title"
                 android:gravity="center"
                 android:padding="10dp"
@@ -88,7 +88,6 @@
             android:backgroundTint="@color/bg"
             android:fontFamily="@font/notes_title"
             android:gravity="top"
-            android:hint="fdsfsdfs fdsf"
             android:textColor="@color/white"
             android:textColorHint="#9a9a9a"
             android:textSize="20sp" />

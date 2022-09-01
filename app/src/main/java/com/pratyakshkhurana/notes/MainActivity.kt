@@ -1,21 +1,22 @@
 package com.pratyakshkhurana.notes
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.HandlerCompat.postDelayed
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.pratyakshkhurana.notes.Adapter.NotesAdapter
 import com.pratyakshkhurana.notes.Adapter.OnClickCardView
 import com.pratyakshkhurana.notes.Data_or_Model.NotesEntity
 import com.pratyakshkhurana.notes.ViewModel.NotesViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.Serializable
 
 
 //MVVM - used to follow a clean structure
@@ -23,17 +24,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(), OnClickCardView {
 
     private val viewModel: NotesViewModel by viewModels()
+    private lateinit var clickedObj: NotesEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        val x = intent.getStringExtra("tt").toString()
-        Toast.makeText(this, "x = $x", Toast.LENGTH_SHORT).show()
-
-
+        //by default all notes are visible on screen
         all.setBackgroundResource(R.drawable.bg_on_click)
+
         floatingAddButton.setOnClickListener {
             startActivity(Intent(this, CreateNote::class.java))
         }
@@ -142,24 +141,18 @@ class MainActivity : AppCompatActivity(), OnClickCardView {
                 }
             })
         }
+
+//        val positiveButtonClick = { dialog: DialogInterface, which: Int ->
+//            Toast.makeText(
+//                this,
+//                "Fds", Toast.LENGTH_SHORT
+//            ).show()
+//        }
     }
 
-    //Listener for share and delete
-    override fun onClick(
-        title: String,
-        desc: String,
-        requiredDateFormat: String,
-        priority: String
-    ) {
-        val intent = Intent(this, EditNote::class.java)
-        intent.putExtra("t", title)
-        intent.putExtra("d", desc)
-        intent.putExtra("r", requiredDateFormat)
-        intent.putExtra("p", priority)
-        startActivity(intent)
-    }
 
     override fun del(note: NotesEntity) {
+
         viewModel.delete(note)
         viewModel.getAllNotes().observe(this, Observer { l ->
             run {
@@ -168,12 +161,28 @@ class MainActivity : AppCompatActivity(), OnClickCardView {
                     StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
                 recyclerView.layoutManager = staggeredGridLayoutManager
 
-//                recyclerView.layoutManager = GridLayoutManager(this, 2)
                 val adapter = NotesAdapter(this, l, this)
                 recyclerView.adapter = adapter
-//                adapter.updateList(l)
             }
         })
+    }
+
+    //function in interface in NoteAdapter.kt
+    override fun viewClickedOnEdit(note: NotesEntity) {
+        //global variable created to store that note when clicked
+        clickedObj = note
+        Toast.makeText(this, note.title, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, EditNote::class.java)
+        intent.putExtra("iid", note.id.toString())
+        intent.putExtra("t", note.title.toString())
+        intent.putExtra("d", note.description.toString())
+        intent.putExtra("lut", note.lastUpdatedTime.toString())
+        intent.putExtra("lud", note.lastUpdatedDate.toString())
+        intent.putExtra("p", note.priority)
+        intent.putExtra("ncb", note.noteColourBackground)
+        intent.putExtra("rdf", note.requiredDateFormat)
+
+        startActivity(intent)
     }
 
 }

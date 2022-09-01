@@ -31,9 +31,6 @@ interface NotesDAO {
     // and then function will return the flow of list of person
     fun searchDatabase(searchQuery: String): LiveData<List<NotesEntity>>
 
-    @Update
-    fun update(note: NotesEntity)
-
 }
 
 

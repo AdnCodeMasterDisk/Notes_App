@@ -26,7 +26,8 @@ class CreateNote : AppCompatActivity() {
     private var priorityDefault: String = "1" //high
     private val viewModel: NotesViewModel by viewModels()
     private val coloursOfNotes =
-        arrayListOf("#fd99ff", "#ff9e9e", "#9effff", "#fff599", "#91f48f", "#b69cff")
+        arrayListOf("#e2e41d", "#fffbff", "#e5e5e5", "#c4c4c4", "#e2e41d", "#e2e41d")
+
 
     @SuppressLint("SimpleDateFormat")
     @RequiresApi(Build.VERSION_CODES.N)
@@ -34,91 +35,25 @@ class CreateNote : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_note)
 
-
-        viewModel.insert(
-            NotesEntity(
-                null,
-                "Awesome tweets collection",
-                "desc",
-                "labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                "Feb 20, 2022",
-                "1",
-                "#fd99ff",
-                "Feb 20, 2022"
-            )
-        )
-
-        viewModel.insert(
-            NotesEntity(
-                null,
-                "UI concepts worth existing",
-                "x ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "hjvbb",
-                "Feb 20, 2022",
-                "1",
-                "#ff9e9e",
-                "Feb 20, 2022"
-            )
-        )
-
-        viewModel.insert(
-            NotesEntity(
-                null,
-                "Book review: the design of everyday things by Don Norman",
-                "enim ipsam voluptatem quia volu",
-                "hjvbb",
-                "Feb 20, 2022",
-                "1",
-                "#fff599",
-                "Feb 20, 2022"
-            )
-        )
-
-        viewModel.insert(
-            NotesEntity(
-                null,
-                "Animes produces by Ufotable",
-                "d I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-",
-                "hjvbb",
-                "Feb 20, 2022",
-                "1",
-                "#91f48f",
-                "Feb 20, 2022"
-            )
-        )
-
-        viewModel.insert(
-            NotesEntity(
-                null,
-                "Mangas planned to be read",
-                "imilique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor r",
-                "hjvbb",
-                "Feb 20, 2022",
-                "1",
-                "#b69cff",
-                "Feb 20, 2022"
-            )
-        )
-
-        priority_create_note.setBackgroundResource(R.drawable.bg_on_click)
+        high_priority_create_note.setBackgroundResource(R.drawable.bg_on_click)
         currDate_CreateNote.text = dat()
 
-        priority_create_note.setOnClickListener {
-            priority_create_note.setBackgroundResource(R.drawable.bg_on_click)
+        high_priority_create_note.setOnClickListener {
+            high_priority_create_note.setBackgroundResource(R.drawable.bg_on_click)
             low_create_note.setBackgroundResource(R.drawable.bg)
             medium_create_note.setBackgroundResource(R.drawable.bg)
             priorityDefault = "1"
         }
 
         low_create_note.setOnClickListener {
-            priority_create_note.setBackgroundResource(R.drawable.bg)
+            high_priority_create_note.setBackgroundResource(R.drawable.bg)
             low_create_note.setBackgroundResource(R.drawable.bg_on_click)
             medium_create_note.setBackgroundResource(R.drawable.bg)
             priorityDefault = "3"
         }
 
         medium_create_note.setOnClickListener {
-            priority_create_note.setBackgroundResource(R.drawable.bg)
+            high_priority_create_note.setBackgroundResource(R.drawable.bg)
             low_create_note.setBackgroundResource(R.drawable.bg)
             medium_create_note.setBackgroundResource(R.drawable.bg_on_click)
             priorityDefault = "2"
@@ -150,7 +85,6 @@ class CreateNote : AppCompatActivity() {
             val year =
                 (currentDate[6].toString() + currentDate[7].toString() + currentDate[8].toString() + currentDate[9].toString())
 
-//            val requiredDateFormat
             var requiredDateFormat = ""
             when (month) {
                 "01" -> requiredDateFormat += "Jan"

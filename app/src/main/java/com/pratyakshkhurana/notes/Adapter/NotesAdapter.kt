@@ -1,6 +1,8 @@
 package com.pratyakshkhurana.notes.Adapter
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -35,16 +37,34 @@ class NotesAdapter(
         holder.description.text = curr.description
         holder.date.text = curr.requiredDateFormat
         holder.card.setCardBackgroundColor(Color.parseColor(curr.noteColourBackground))
+
+
+        //id will also be passed
         holder.card.setOnClickListener {
-            listen.onClick(
-                curr.title,
-                curr.description.toString(),
-                curr.requiredDateFormat,
-                curr.priority
-            )
+            listen.viewClickedOnEdit(curr)
         }
-        holder.delete.setOnClickListener{
-            listen.del(curr)
+
+        holder.title.setOnClickListener {
+            listen.viewClickedOnEdit(curr)
+        }
+        holder.description.setOnClickListener {
+            listen.viewClickedOnEdit(curr)
+        }
+        holder.date.setOnClickListener {
+            listen.viewClickedOnEdit(curr)
+        }
+        holder.delete.setOnClickListener {
+
+            AlertDialog.Builder(listener)
+                .setTitle("Alert !")
+                .setIcon(R.drawable.danger)
+                .setMessage("Are you sure you want to delete ?")
+                .setCancelable(false)
+                .setNegativeButton("NO") { _, _ ->
+                }
+                .setPositiveButton("YES") { _: DialogInterface, _: Int ->
+                    listener.del(curr)
+                }.show()
         }
     }
 
@@ -52,22 +72,16 @@ class NotesAdapter(
         return allNotes.size
     }
 
-//    fun updateList(note: List<NotesEntity>){
-////        allNotes.clear()
-////        allNotes.addAll(note)
-//        notifyDataSetChanged()
-//    }
-
     class NotesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.title_recyclerView
         val description: TextView = itemView.desc_recyclerView
         val date: TextView = itemView.date_recyclerView
         val card: CardView = itemView.cardViewRecyclerView
-        val delete : ImageView = itemView.delete_button_recyclerView
+        val delete: ImageView = itemView.delete_button_recyclerView
     }
 }
 
 interface OnClickCardView {
-    fun onClick(title: String, desc: String, requiredDateFormat: String, priority: String)
-    fun del(note:NotesEntity)
+    fun viewClickedOnEdit(note: NotesEntity)
+    fun del(note: NotesEntity)
 }
