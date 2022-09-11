@@ -127,11 +127,6 @@ class CreateNoteFragment : Fragment() {
                 viewModel.insertNote(obj)
                 Toast.makeText(requireContext(), "Last updated : $currentTime", Toast.LENGTH_LONG)
                     .show()
-                fragmentManager?.beginTransaction()?.apply {
-                    replace(R.id.fragmentContainer, HomeFragment())
-                        .commit()
-                }
-
             } else {
                 Toast.makeText(requireContext(), "Add a title", Toast.LENGTH_LONG).show()
             }

@@ -18,10 +18,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
-            android:background="@drawable/notes_icon" />
+            android:background="@drawable/ic_baseline_sticky_note_2_24" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:text="PRATYAKSH KHURANA️"
-        android:textColor="@color/teal_200"
+        android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
