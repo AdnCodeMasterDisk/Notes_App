@@ -5,7 +5,7 @@
 
 ***You can Install and test latest Notes app below 👇*** <br> 
 
-### Get Apk [Download here](https://raw.githubusercontent.com/pratyaksh1610/Notes_App/main/app/app-release.apk)
+### Get Apk [Download here](https://raw.githubusercontent.com/pratyaksh1610/Notes_App/main/app/app-debug.apk)
 ------------
 
 ## ⚙️ Features
