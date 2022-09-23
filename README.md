@@ -15,6 +15,7 @@
 * Delete Notes - Delete Notes using One Touch.
 * Share notes - Share notes with your friends.
 * Save notes - Save notes within the app for future reference.
+* Search notes - Search notes using title of note.
 
 ## 🚀 Technology Used
 
