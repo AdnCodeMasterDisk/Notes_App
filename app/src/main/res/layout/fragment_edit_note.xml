@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#252525"
-    tools:context=".Fragments.EditNoteFragment">
+    tools:context="com.pratyaksh_khurana.SaveNotes.Fragments.EditNoteFragment">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -52,18 +52,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_weight="1"
             android:backgroundTint="#252525"
             android:fontFamily="@font/notes_title"
             android:hint="Title"
-            android:maxLines="2"
+            android:inputType="text"
+            android:maxLines="1"
             android:textColor="@color/white"
             android:textColorHint="#9a9a9a"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:orientation="horizontal">
 
             <TextView
@@ -107,7 +109,6 @@
             android:id="@+id/description_act_EditNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
             android:backgroundTint="#252525"
             android:fontFamily="@font/notes_title"
             android:gravity="top"
