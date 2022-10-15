@@ -4,8 +4,7 @@
 ## 📱 Note taking Android App made using Kotlin
 
 ***You can Install and test latest Notes app below 👇*** <br> 
-
-### Get Apk [Download here](https://raw.githubusercontent.com/pratyaksh1610/Notes_App/main/app/app-debug.apk)
+### Download now [Google Play Store](https://play.google.com/store/apps/developer?id=Pratyaksh+Khurana)
 ------------
 
 ## ⚙️ Features
